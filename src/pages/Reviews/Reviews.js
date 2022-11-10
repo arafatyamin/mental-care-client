@@ -9,7 +9,7 @@ const Reviews = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`https://doctor-portal-serrver.vercel.app/reviews?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setReviews(data.reverse())
@@ -21,7 +21,7 @@ const Reviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, You want to cancel this request')
         if(proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://doctor-portal-serrver.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

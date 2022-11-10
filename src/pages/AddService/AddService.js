@@ -21,7 +21,7 @@ const AddService = () => {
             icon
         }
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://doctor-portal-serrver.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

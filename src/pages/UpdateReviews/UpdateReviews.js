@@ -17,7 +17,7 @@ const UpdateReviews = () => {
         event.preventDefault();
         const value = event.target.message.value;
         // console.log(user)
-        fetch(`http://localhost:5000/reviews/${serviceInfo._id}`,{
+        fetch(`https://doctor-portal-serrver.vercel.app/reviews/${serviceInfo._id}`,{
             method: 'PUT',
             headers:{
                 'content-type': 'application/json'

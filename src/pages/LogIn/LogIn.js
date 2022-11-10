@@ -42,14 +42,36 @@ const LogIn = () => {
         login(email, password)
         .then(result =>{
             const user = result.user;
-            console.log(user);
+            
+
+            const currentUser = {
+                email: user.email
+            }
+            console.log(currentUser);
+
+            fetch(`https://doctor-portal-serrver.vercel.app/jwt`,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify()
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+
+                localStorage.setItem('genius-token', data.token);
+            })
+
+
+            // navigate(from, {replace: true})
         })
-        .then(error => console.log(error));
+        .catch(error => console.log(error));
 
     }
 
     //jwt
-    navigate(from, {replace: true})
+    
     return (
         <div>
             <div className="hero min-h-screen bg-white">
