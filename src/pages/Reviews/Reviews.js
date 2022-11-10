@@ -47,6 +47,7 @@ const Reviews = () => {
                 
                 <th></th>
                 <th>Name & mobile</th>
+                <th>email</th>
                 <th>title</th>
                 <th>price</th>
                 <th>message</th>

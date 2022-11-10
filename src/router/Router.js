@@ -2,6 +2,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from '../layout/Root';
 import AddService from '../pages/AddService/AddService';
+import Blogs from '../pages/Blogs/Blogs';
 import Home from '../pages/Home/Home';
 import LogIn from '../pages/LogIn/LogIn';
 import Review from '../pages/Review/Review';
@@ -39,7 +40,7 @@ import PrivateRoute from './PrivateRoute';
             },
             {
                 path: "/reviews",
-                element: <Reviews></Reviews>,
+                element: <PrivateRoute><Reviews></Reviews></PrivateRoute>,
             },
             {
                 path: "/update/:id",
@@ -57,7 +58,11 @@ import PrivateRoute from './PrivateRoute';
             {
               path: "/login",
               element: <LogIn></LogIn>,
-            }
+            },
+            {
+              path: "/blogs",
+              element: <Blogs></Blogs>,
+            },
           ]
         }
       ])

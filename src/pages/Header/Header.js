@@ -19,13 +19,10 @@ const Header = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-42">
                     <Link to="/" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">HOME</Link>
                     <Link to="/services" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">SERVICE</Link>
-                    <Link to="/blog" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">BLOG</Link>
-                    {
-                        user?.email? <>
-                        <Link to="/reviews" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">REVIEWS</Link>
+                    <Link to="/blogs" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">BLOG</Link>
+                    <Link to="/reviews" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">REVIEWS</Link>
                     <Link to="/addService" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">ADD SERVICE</Link>
-                        </>:''
-                    }
+                        
                     </ul>
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl">MentalHealth</Link>
@@ -34,13 +31,10 @@ const Header = () => {
             <div className="menu menu-horizontal p-0">
             <Link to="/" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">HOME</Link>
             <Link to="/services" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">SERVICE</Link>
-            <Link to="/blog" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">BLOG</Link>
-            {
-                user?.email? <>
-                <Link to="/reviews" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">REVIEWS</Link>
+            <Link to="/blogs" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">BLOG</Link>
+            <Link to="/reviews" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">REVIEWS</Link>
             <Link to="/addService" className="hover:text-[#175c62] text-md font-bold hover:border-b-2 border-[#175c62] mr-4">ADD SERVICE</Link>
-                </>:''
-            }
+                
     </div>
   </div>
   <div className="navbar-end">

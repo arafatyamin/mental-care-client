@@ -47,14 +47,14 @@ const Review = ({service}) => {
             <p>this is review section</p>
             <form onSubmit={handlePlaceReview} className="card-body text-[#175c62] text-lg  shadow-2xl w-full rounded-3xl bg-[#f2f2f2a5]">
                     <div className="form-control grid grid-cols-2 gap-4">
-                    <input name="name" type="text" placeholder="name" className="input input-bordered rounded-full" />
+                    <input name="name" type="text" placeholder="name" className="input input-bordered rounded-full" required/>
                     <input name="email" type="email" placeholder="email" className="input input-bordered rounded-full" defaultValue={user?.email} readOnly />
                     <input name="mobile" type="text" placeholder="your mobile number" className="input input-bordered 
-                    active:border-[#175c62] bg-white rounded-full" />
+                    active:border-[#175c62] bg-white rounded-full" required/>
                     <input name="photo" type="text" placeholder="photo url" className="input input-bordered 
                     active:border-[#175c62] bg-white rounded-full" defaultValue={user?.photoURL}/>
                     </div>
-                    <textarea name="message" className="textarea textarea-bordered h-24" placeholder="your massage"></textarea>
+                    <textarea name="message" className="textarea textarea-bordered h-24" placeholder="your massage" required></textarea>
                     <input type="submit" value="add review" className="btn bg-[#175c62] hover:bg-white hover:text-[#175c62] hover:border-[#175c62]" />
             </form>
             <div>

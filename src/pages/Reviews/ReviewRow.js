@@ -4,17 +4,7 @@ import { Link } from 'react-router-dom';
 const ReviewRow = ({review, handleDelete,}) => {
     
     console.log(review);
-    const {serviceName,photo, price,  customer, mobile, _id, message } = review;
-    // const [reviewsData, setReviewsData] = useState({})
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/services/${service}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data);
-    //         setReviewsData(data)
-    //     });
-    // }, [service])
+    const {serviceName,photo, price,email,  customer, mobile, _id, message } = review;
 
     
     return (
@@ -39,8 +29,13 @@ const ReviewRow = ({review, handleDelete,}) => {
                     </div>
                 </div>
                 </td>
+                <td>{
+                <p>{email}</p>}
+                
+                </td>
                 <td>
                 <p className="text-2xl">{serviceName}</p>
+                
                 </td>
                 <td>
                 <span className="badge badge-ghost text-xl">{price}</span>
