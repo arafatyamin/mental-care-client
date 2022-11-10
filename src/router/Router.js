@@ -1,8 +1,16 @@
 
 import { createBrowserRouter } from 'react-router-dom';
 import Root from '../layout/Root';
+import AddService from '../pages/AddService/AddService';
 import Home from '../pages/Home/Home';
-import Services from '../pages/Services/Services';
+import LogIn from '../pages/LogIn/LogIn';
+import Review from '../pages/Review/Review';
+import Reviews from '../pages/Reviews/Reviews';
+import Services from '../pages/Services/Services'
+import SignUp from '../pages/SignUp/SignUp';
+import SingleService from '../pages/SingleService/SingleService';
+import UpdateReviews from '../pages/UpdateReviews/UpdateReviews';
+import PrivateRoute from './PrivateRoute';
 
 
     const router = createBrowserRouter([
@@ -12,15 +20,46 @@ import Services from '../pages/Services/Services';
           children: [
             {
                 path: "/",
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader: () => fetch('http://localhost:5000/servicesHome')
             },
             {
-                path: "/service",
-                element:<Services></Services>
+                path: "/services",
+                element:<Services></Services>,
+                loader: () => fetch('http://localhost:5000/services')
             },
+            {
+                path: "/services/:id",
+                element:<SingleService></SingleService>,
+                loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: "/review",
+                element: <PrivateRoute><Review></Review></PrivateRoute>,
+            },
+            {
+                path: "/reviews",
+                element: <Reviews></Reviews>,
+            },
+            {
+                path: "/update/:id",
+                element: <UpdateReviews></UpdateReviews>,
+                loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+            },
+            {
+                path: "/signup",
+                element: <SignUp></SignUp>,
+            },
+            {
+                path: "/addService",
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>,
+            },
+            {
+              path: "/login",
+              element: <LogIn></LogIn>,
+            }
           ]
-        },
-      ]);
-  
+        }
+      ])
 
-export default router;
+      export default router;
