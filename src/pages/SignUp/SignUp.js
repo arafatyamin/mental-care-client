@@ -48,11 +48,11 @@ const SignUp = () => {
     return (
         <div>
             <div className="hero min-h-screen bg-white">
-            <div className="hero-content grid grid-cols-2 w-full">
-                <div className="text-center  ">
-                <h1 className="text-5xl font-bold">Login now!</h1>
+            <div className=" grid lg:grid-cols-2 w-full">
+                <div className="flex justify-center items-center ">
+                <h1 className="text-5xl font-bold my-4">Login now!</h1>
                 </div>
-                <div className="card mr-12">
+                <div className="card lg:mr-12 my-4">
                 <form onSubmit={handleSignUp} className="card-body text-lg  shadow-2xl w-full rounded-3xl bg-[#f2f2f2a5]">
                     <div className="form-control">
                     <label className="label text-[#175c62]">name</label>
