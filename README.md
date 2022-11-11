@@ -1,6 +1,6 @@
 * Live site :
+https://doctorshouse-95f5f.web.app/
 
-* Live Server :
 
 *  .Tailwind CSS
 * .DAISYUI
