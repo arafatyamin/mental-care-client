@@ -54,7 +54,7 @@ const Review = ({service}) => {
                     <input name="photo" type="text" placeholder="title" className="input input-bordered 
                     active:border-[#175c62] bg-white rounded-full" defaultValue={title}  readOnly/>
                     
-                    <textarea name="message" className="textarea textarea-bordered h-24 col-span-2" placeholder="your massage" required></textarea>
+                    <textarea name="message" className="textarea textarea-bordered h-24 lg:col-span-2" placeholder="your massage" required></textarea>
                     </div>
                     <input type="submit" value="add review" className="btn bg-[#175c62] hover:bg-white hover:text-[#175c62] hover:border-[#175c62]" />
             </form>

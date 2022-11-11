@@ -27,7 +27,7 @@ const Home = () => {
                         
                         <div className="card-body items-center text-[#175c62] hover:text-white text-center">
                         <PhotoView src={highlight.picture}>
-                        <img src={highlight.icon}  alt="" className="w-2/6" />
+                        <img src={highlight.icon ? highlight.icon:'https://i.ibb.co/4p1X41C/depression.png'}  alt="" className="w-2/6" />
                         </PhotoView>
                             <h2 className="card-title">{highlight.title}</h2>
                             <h2 className="card-title">${highlight.price}</h2>
