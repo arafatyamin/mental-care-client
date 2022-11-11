@@ -9,7 +9,7 @@ const Reviews = () => {
     
 
     useEffect(() => {
-        fetch(`https://doctor-portal-serrver.vercel.app?email=${user?.email}`,{
+        fetch(`https://doctor-portal-serrver.vercel.app/reviews?email=${user?.email}`,{
             headers: {
                 authorization: `Bearer ${localStorage.getItem('genius-token')}`
             }
@@ -21,6 +21,7 @@ const Reviews = () => {
             return res.json()
         })
         .then(data => {
+            console.log(data);
             setReviews(data.reverse())
         })
     }, [user?.email, logout])
@@ -51,7 +52,7 @@ const Reviews = () => {
 
 
     return (
-        <div className="px-12">
+        <div className="lg:px-12">
             <div className="overflow-x-auto w-full">
             {
                     reviews?.length > 0 ? 
@@ -69,7 +70,7 @@ const Reviews = () => {
                 <th></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody >
             {
                 
                reviews.map(review => <ReviewRow

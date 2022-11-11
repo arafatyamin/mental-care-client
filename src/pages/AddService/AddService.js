@@ -10,11 +10,11 @@ const AddService = () => {
         const title = form.title.value;
         const price = form.price.value;
         const description = form.description.value;
-        const icon = form.icon.value;
+        const icon = form.icon.value ;
         console.log(picture, title, price, description, icon);
 
         const review = {
-            picture,
+            picture: picture,
             title,
             price,
             description,
@@ -32,6 +32,7 @@ const AddService = () => {
             .then(data => {
                 console.log(data)
                 toast.success('success added service')
+                form.reset()
             })
             .catch(err => console.log(err))
     }
@@ -39,15 +40,15 @@ const AddService = () => {
 
     return (
         <div>
-            <p className="text-3xl text-center p-4">added service</p>
-            <form onSubmit={handleServiceAdded} className='grid grid-cols-2 gap-6 mx-4'>
+            <p className=" text-3xl text-center p-4">added service</p>
+            <form onSubmit={handleServiceAdded} className=' grid lg:grid-cols-2 grid-cols-1 gap-6 mx-4'>
             <input name="picture" type="text" placeholder="picture" className="input w-full bg-gray-200 rounded-full" />
             
             <input name="title" type="text" placeholder="title" className="input w-full bg-gray-200 rounded-full" />
             <input name="price" type="text" placeholder="price" className="input w-full bg-gray-200 rounded-full" />
-            <input name="description" type="text" placeholder="description" className="input w-full bg-gray-200 rounded-full" />
-            <input name="icon" type="text" placeholder="icon" className="input w-full bg-gray-200  rounded-full" />
-            <input type="submit" value="ADD" className="btn btn-primary w-full cols-2"/>
+            <input name="icon" type="text" placeholder="icon" className="input bg-gray-200  rounded-full" />
+            <textarea name="description" className="textarea textarea-bordered h-16 bg-gray-200 lg:col-span-2 rounded-full" placeholder="description" required></textarea>
+            <input type="submit" value="ADD" className="btn btn-primary w-full lg:col-span-2"/>
             </form>
         </div>
     );
