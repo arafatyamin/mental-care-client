@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import Review from '../Review/Review';
-import Reviews from '../Reviews/Reviews';
 
 const SingleService = () => {
+    const {user} = useContext(AuthContext);
     const service = useLoaderData()
     const {title, picture, description,} = service;
     return (
@@ -18,7 +19,11 @@ const SingleService = () => {
             </div>
             </div>
             <div>
-                <Review service={service}></Review>
+                {
+                    user?.email ? <>
+                    <Review service={service}></Review>
+                    </>: ''
+                }
             </div>
         </div>
     );

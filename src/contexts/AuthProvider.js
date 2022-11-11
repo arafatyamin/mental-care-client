@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
 import app from '../firebase/firebase.config';
+import { toast } from 'react-toastify';
 
 
 
@@ -34,9 +35,10 @@ const AuthProvider = ({children}) => {
 
     const logout = () => {
         setLoading(true);
+        localStorage.removeItem('genius-token');
         return signOut(auth)
         .then(() => {
-            alert('sign out successfully')
+            toast('sign out successfully')
         })
         .catch(err => console.log(err))
     }

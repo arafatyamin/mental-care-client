@@ -1,6 +1,7 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../api/auth';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const LogIn = () => {
@@ -20,6 +21,7 @@ const LogIn = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            setAuthToken(user)
         })
         .catch(err => console.error(err))
     }
@@ -29,6 +31,7 @@ const LogIn = () => {
         .then(result => {
             const user = result.user;
             console.log(user)
+            setAuthToken(user)
         })
         .catch(err => console.error(err))
     }
@@ -43,28 +46,30 @@ const LogIn = () => {
         .then(result =>{
             const user = result.user;
             
-
             const currentUser = {
                 email: user.email
             }
             console.log(currentUser);
 
+            // get jwt token
             fetch(`https://doctor-portal-serrver.vercel.app/jwt`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify()
+                body: JSON.stringify(currentUser)
             })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-
+                // local storage
                 localStorage.setItem('genius-token', data.token);
+
+                navigate(from, {replace: true})
             })
 
-
-            // navigate(from, {replace: true})
+           
+            
         })
         .catch(error => console.log(error));
 

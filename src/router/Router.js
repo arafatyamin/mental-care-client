@@ -31,12 +31,12 @@ import PrivateRoute from './PrivateRoute';
             },
             {
                 path: "/services/:id",
-                element:<SingleService></SingleService>,
+                element:<SingleService/>,
                 loader: ({params}) => fetch(`https://doctor-portal-serrver.vercel.app/services/${params.id}`)
             },
             {
                 path: "/review",
-                element: <PrivateRoute><Review></Review></PrivateRoute>,
+                element: <PrivateRoute><Review/></PrivateRoute>,
             },
             {
                 path: "/reviews",
@@ -45,7 +45,7 @@ import PrivateRoute from './PrivateRoute';
             {
                 path: "/update/:id",
                 element: <UpdateReviews></UpdateReviews>,
-                loader: ({params}) => fetch(`https://doctor-portal-serrver.vercel.app/reviews/${params.id}`)
+                loader: ({params}) => fetch(`https://doctor-portal-serrver.vercel.app/${params.id}`)
             },
             {
                 path: "/signup",

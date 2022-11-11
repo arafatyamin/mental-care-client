@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Review = ({service}) => {
@@ -25,18 +26,19 @@ const Review = ({service}) => {
             message,
             time
         } 
-        fetch('https://doctor-portal-serrver.vercel.app/reviews', {
+        fetch('https://doctor-portal-serrver.vercel.app', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
             },
             body: JSON.stringify(review)
         })
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            toast.success('success added review')
             if(data.acknowledge){
-                alert('order placed successfully')
                 form.reset();
             }
         })

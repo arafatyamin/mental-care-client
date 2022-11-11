@@ -19,6 +19,7 @@ const Services = () => {
                         <img src={service.icon}  alt="" className="w-2/6" />
                         </PhotoView>
                             <h2 className="card-title">{service.title}</h2>
+                            <h2 className="card-title">{service.price}</h2>
                             <p>{service.description.slice(0, 100)}</p>
                             <div className="card-actions w-full justify-center">
                         <Link to={`/services/${service._id}`}>

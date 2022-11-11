@@ -1,22 +1,29 @@
 import React from 'react';
 import { PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
-import Carusel from './Carusel';
+import Contact from '../Contact/Contact';
+import Banner from './Banner';
+import GroupAdvice from './GroupAdvice';
 
 const Home = () => {
-    const highlights = useLoaderData()
+    const homeServices = useLoaderData();
+    const highlights = homeServices.slice(0, 3)
+    
+
     return (
         <div className="bg-[#fff5cb] h-full p-[20px] text-center">
             {/* carousel */}
             <div>
-            <Carusel></Carusel>
+                <Banner></Banner>
             </div>
 
+
             {/* short services */}
+            <div className="pb-12">
             <div className="grid grid-cols-3 gap-8 m-12 grid-items-center">
                 {
                 highlights.map(highlight => 
-                    <div className="card bg-white rounded-3xl hover:bg-[#175c62] shadow-xl">
+                    <div key={highlight._id} className="card bg-white rounded-3xl hover:bg-[#175c62] shadow-xl">
                         
                         <div className="card-body items-center text-[#175c62] hover:text-white text-center">
                         <PhotoView src={highlight.picture}>
@@ -34,6 +41,16 @@ const Home = () => {
             }
             </div>
             <Link to="/services" className="btn border-0 bg-[#01cab8] text-2xl hover:text-[#01cab8] hover:bg-white hover:border-2 hover:border-[#01cab8] rounded-full">see more</Link>
+            </div>
+        
+        {/*this is group therapy section  */}
+        <div>
+        <GroupAdvice></GroupAdvice>
+        </div>
+        {/* contact */}
+        <div>
+        <Contact></Contact>
+        </div>
             
         </div>
     );

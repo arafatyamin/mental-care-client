@@ -31,7 +31,7 @@ const AddService = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                
+                toast.success('success added service')
             })
             .catch(err => console.log(err))
     }

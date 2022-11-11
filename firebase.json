@@ -1,6 +1,8 @@
 {
   "hosting": {
-    "public": "npm run build",
+    
+    "site": "doctorshouse-95f5f",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",

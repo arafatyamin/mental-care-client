@@ -4,25 +4,37 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import ReviewRow from './ReviewRow';
 
 const Reviews = () => {
-    const {user} = useContext(AuthContext)
+    const {user, logout} = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     
 
     useEffect(() => {
-        fetch(`https://doctor-portal-serrver.vercel.app/reviews?email=${user?.email}`)
-        .then(res => res.json())
+        fetch(`https://doctor-portal-serrver.vercel.app?email=${user?.email}`,{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
+            }
+        })
+        .then(res => {
+            if(res.status === 401 || res.status === 403){
+                return logout()
+            }
+            return res.json()
+        })
         .then(data => {
             setReviews(data.reverse())
         })
-    }, [user?.email])
+    }, [user?.email, logout])
 
 
     // delete review
     const handleDelete = id => {
-        const proceed = window.confirm('Are you sure, You want to cancel this request')
+        const proceed = window.confirm('Are you sure, You want to delete this review')
         if(proceed) {
-            fetch(`https://doctor-portal-serrver.vercel.app/reviews/${id}`, {
-                method: 'DELETE'
+            fetch(`https://doctor-portal-serrver.vercel.app/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('genius-token')}`
+                }
             })
             .then(res => res.json())
             .then(data => {
@@ -41,7 +53,9 @@ const Reviews = () => {
     return (
         <div className="px-12">
             <div className="overflow-x-auto w-full">
-  <table className="table w-full">
+            {
+                    reviews?.length > 0 ? 
+                    <table className="table w-full">
             <thead>
             <tr>
                 
@@ -57,15 +71,21 @@ const Reviews = () => {
             </thead>
             <tbody>
             {
+                
                reviews.map(review => <ReviewRow
                key={review._id}
                review={review}
                handleDelete={handleDelete}
                ></ReviewRow>) 
+               
             }
             
             </tbody>
         </table>
+                    :
+               <p className="text-5xl py-4 text-center w-full">No reviews were added</p>
+            }
+  
         </div>
             
         </div>
