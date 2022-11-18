@@ -28,6 +28,9 @@ const SingleService = () => {
                     </>: ''
                 }
             </div>
+            <div>
+                <detailsPageReview></detailsPageReview>
+            </div>
         </div>
     );
 };

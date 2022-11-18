@@ -31,7 +31,7 @@ const Reviews = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, You want to delete this review')
         if(proceed) {
-            fetch(`https://doctor-portal-serrver.vercel.app/${id}`, {
+            fetch(`https://doctor-portal-serrver.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('genius-token')}`

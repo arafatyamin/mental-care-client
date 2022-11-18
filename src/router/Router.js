@@ -45,7 +45,11 @@ import PrivateRoute from './PrivateRoute';
             {
                 path: "/update/:id",
                 element: <UpdateReviews></UpdateReviews>,
-                loader: ({params}) => fetch(`https://doctor-portal-serrver.vercel.app/${params.id}`)
+                loader: ({params}) => fetch(`https://doctor-portal-serrver.vercel.app/reviews/${params.id}`,{
+                  headers: {
+                      authorization: `Bearer ${localStorage.getItem('genius-token')}`
+                  }
+              })
             },
             {
                 path: "/signup",

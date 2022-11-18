@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const Services = () => {
     const services = useLoaderData()
 
-    
+    console.log(services);
     return (
         <div className="bg-[#fff5cb] h-full p-5">
 

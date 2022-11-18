@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const ReviewRow = ({review, handleDelete,}) => {
     
     console.log(review);
-    const {serviceName,photo, price,email,  customer, mobile, _id, message } = review;
+    const {serviceName,photo, price,time,  customer, mobile, _id, message, service } = review;
+    console.log(service)
 
     
     return (
@@ -14,7 +15,6 @@ const ReviewRow = ({review, handleDelete,}) => {
                 <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                         {
-                            
                             <img src={photo} alt="" />
                         }
                     </div>
@@ -30,7 +30,7 @@ const ReviewRow = ({review, handleDelete,}) => {
                 </div>
                 </td>
                 <td>{
-                <p>{email}</p>}
+                <p>{time}</p>}
                 
                 </td>
                 <td>

@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Review = ({service}) => {
     const {user} = useContext(AuthContext)
+    console.log(service);
     const {_id, title, price, picture} = service;
 
     const handlePlaceReview = event => {
@@ -13,7 +14,8 @@ const Review = ({service}) => {
         const email = form.email.value;
         const mobile = form.mobile.value;
         const message = form.message.value;
-        let time = new Date().getTime();
+        let time = new Date();
+        console.log(time)
         const review = {
             service: _id,
             serviceName: title,
