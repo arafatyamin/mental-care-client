@@ -1,5 +1,5 @@
 
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Link } from 'react-router-dom';
 import Root from '../layout/Root';
 import AddService from '../pages/AddService/AddService';
 import Blogs from '../pages/Blogs/Blogs';
@@ -67,8 +67,17 @@ import PrivateRoute from './PrivateRoute';
               path: "/blogs",
               element: <Blogs></Blogs>,
             },
+            {
+              path: '*',
+              element: <>
+              <h2 className="text-4xl text-[#023467] font-bold text-center">404</h2>
+              <p className="text-center py-4">Page Not Found, It might have been moved, renamed, or deleted</p>
+              <Link to="/" className="flex justify-center text-xl pb-4 text-[#023467]  hover:text-[#175c62] link">return home</Link>
+              </>
+            }
           ]
-        }
+        },
+               
       ])
 
       export default router;
