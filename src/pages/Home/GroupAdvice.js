@@ -5,7 +5,7 @@ import img2 from '../../assets/groupTheraphy.jpg'
 const GroupAdvice = () => {
     return (
         <div className="hero lg:h-96
-            " style={{ backgroundImage: `url(${img2})` }}>
+            " style={{ backgroundImage: `url(${img2})`,backgroundAttachment:'fixed'}}>
         <div className="hero-overlay bg-opacity-60 lg:h-96"></div>
         <div className="hero-content text-center text-neutral-content lg:justify-start">
             <div className="lg:w-1/2 ">

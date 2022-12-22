@@ -11,7 +11,7 @@ const Home = () => {
     
 
     return (
-        <div className="bg-[#fff5cb] h-full p-[20px] text-center">
+        <div className="h-full pb-[20px] text-center">
             {/* carousel */}
             <div>
                 <Banner></Banner>
@@ -19,11 +19,11 @@ const Home = () => {
 
 
             {/* short services */}
-            <div className="pb-12">
+            <div className="pb-12 ">
             <div className="grid lg:grid-cols-3 gap-8 m-12 grid-items-center">
                 {
                 highlights.map(highlight => 
-                    <div key={highlight._id} className="card bg-white rounded-3xl hover:bg-[#175c62] shadow-xl">
+                    <div key={highlight._id} className="card bg-gray-300 rounded-3xl hover:bg-[#175c62] shadow-xl">
                         
                         <div className="card-body items-center text-[#175c62] hover:text-white text-center">
                         <PhotoView src={highlight.picture}>

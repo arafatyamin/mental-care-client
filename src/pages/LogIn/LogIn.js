@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { setAuthToken } from '../../api/auth';
 import { AuthContext } from '../../contexts/AuthProvider';
+import {FaGoogle, FaGithub} from 'react-icons/fa'
 
 const LogIn = () => {
 
@@ -84,8 +85,8 @@ const LogIn = () => {
                 <div className="text-center  flex justify-center items-center">
                 <h1 className="text-5xl font-bold text-[#175c62] my-8">Login now!</h1>
                 </div>
-                <div className="card lg:mr-12 my-4">
-                <form onSubmit={handleLogIn} className="card-body text-lg  shadow-2xl w-full rounded-3xl bg-[#f2f2f2a5]">
+                <div className="card lg:mr-12 my-4 py-4 bg-[#f2f2f2a5] shadow-2xl  rounded-3xl">
+                <form onSubmit={handleLogIn} className="card-body px-4 py-2 text-lg  w-full">
                     <div className="form-control">
                     <label className="label text-[#175c62]">Email</label>
                     <input name="email" type="email" placeholder="email" className="input input-bordered rounded-full" />
@@ -106,8 +107,11 @@ const LogIn = () => {
                     <input type="submit" className="btn bg-[#175c62] hover:bg-white hover:text-[#175c62] hover:border-[#175c62]" value="signIn"/>
                     </div>
                 </form>
-                <input onClick={handleGoogleSignIn} type="submit" className="btn bg-[#175c62] hover:bg-white hover:text-[#175c62] hover:border-[#175c62]" value="GoogleSignUp"/>
-                <input onClick={handleGithubSignIn} type="submit" className="btn bg-[#175c62] hover:bg-white hover:text-[#175c62] hover:border-[#175c62]" value="githubSignUp"/>
+                <div className="flex justify-evenly items-center">
+                <FaGoogle onClick={handleGoogleSignIn} className="text-3xl text-[#175c62] cursor-pointer" />
+                <FaGithub onClick={handleGithubSignIn} className="text-3xl text-[#175c62] cursor-pointer" />
+                
+                </div>
                 </div>
             </div>
             </div>
